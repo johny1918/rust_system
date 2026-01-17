@@ -1,6 +1,7 @@
 mod chapter_two;
 use crate::chapter_two::add_with_lifetimes;
 use crate::chapter_two::add;
+use crate::chapter_two::search_string;
 
 fn main() {
     let a = 2;
@@ -11,4 +12,11 @@ fn main() {
 
     let sum = add(a, b);
     println!("Sum: {}", sum);
+
+    let quote = "\
+        Every face, every shop, bedroom window, public-house, and
+        dark square is a picture feverishly turned--in search of what?
+        It is the same with books.
+        What do we seek through millions of pages?";
+    search_string(quote, "seek");
 }

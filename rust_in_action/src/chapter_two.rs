@@ -7,3 +7,12 @@ pub fn add_with_lifetimes<'a, 'b>(i: &'a i32, j: &'b i32) -> i32 {
 pub fn add<T: std::ops::Add<Output = T>>(i: T, j: T) -> T {
     i + j
 }
+
+// Practice string, grep-lite like
+pub fn search_string(input_string: &str, search_word: &str) {
+    for line in input_string.lines() {
+        if line.contains(search_word) {
+            println!("Found the word you searched for: {}", search_word);
+        }
+    }
+}
