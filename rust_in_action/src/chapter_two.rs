@@ -16,3 +16,13 @@ pub fn search_string(input_string: &str, search_word: &str) {
         }
     }
 }
+
+// Automatically increment index
+pub fn search_string_v2(input_string: &str, search_word: &str) {
+    for (i, line) in input_string.lines().enumerate() {
+        if line.contains(search_word) {
+            let line_num = i + 1;
+            println!("Found the word you searched for: {} at line {}", search_word, line_num);
+        }
+    }
+}
