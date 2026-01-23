@@ -1,3 +1,5 @@
+use std::{fs::File, io::{BufRead, BufReader}, path::Path};
+
 // Explicit lifetime annotation
 pub fn add_with_lifetimes<'a, 'b>(i: &'a i32, j: &'b i32) -> i32 {
     *i + *j
@@ -24,5 +26,15 @@ pub fn search_string_v2(input_string: &str, search_word: &str) {
             let line_num = i + 1;
             println!("Found the word you searched for: {} at line {}", search_word, line_num);
         }
+    }
+}
+
+// Read from file via BufReader::lines()
+pub fn read_a_file(file: &Path) {
+    let f = File::open(file).unwrap();
+    let reader = BufReader::new(f);
+    for line_ in reader.lines() {
+        let line = line_.unwrap();
+        println!("{} ({} bytes long)", line, line.len());
     }
 }
