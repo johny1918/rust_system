@@ -32,7 +32,7 @@ fn main() {
     // read_a_file(&path);
 
     // Chapter 3
-    let mut f1 = File {
+    let f1 = File {
         name: String::from("f1.txt"),
         data: Vec::new(),
     };
@@ -42,4 +42,6 @@ fn main() {
 
     println!("{:?}", f1);
     println!("{} is {} bytes long", f1_name, f1_data);
+
+    
 }

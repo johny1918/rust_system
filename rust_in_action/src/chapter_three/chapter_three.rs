@@ -5,6 +5,12 @@ pub struct File {
     pub data: Vec<u8>,
 }
 
+impl File {
+    pub fn new(name: &str) -> Self {
+        Self { name: String::from(name), data: Vec::new() }
+    }
+}
+
 pub fn open(f: &mut File) -> bool {
     true
 }
@@ -13,7 +19,12 @@ pub fn close(f: &mut File) -> bool {
     true
 }
 
-#[allow(dead_code)]
-pub fn read(f: &mut File, save_to: &mut Vec<u8>) {
-    unimplemented!()
+pub fn read(f: &mut File, save_to: &mut Vec<u8>) -> usize {
+    let mut tmp = f.data.clone();
+    let read_length = tmp.len();
+
+    save_to.reserve(read_length);
+    save_to.append(&mut tmp);
+
+    read_length
 }
